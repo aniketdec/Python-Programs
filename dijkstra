@@ -1,0 +1,15 @@
+import heapq
+def dijkstra(g,source,):#g-Graph
+    h=[]
+    dist=[pow(10,9)]*(n+1)
+    dist[source]=0
+    heapq.heappush(h,(0,source))
+    while len(h)!=0:
+        u=heapq.heappop(h)[1]
+        for t in g[u]:
+            v=t[1]
+            w=t[0]
+            if dist[v]>dist[u]+w:
+                dist[v]=dist[u]+w
+                heapq.heappush(h,(w,v))
+    return dist
